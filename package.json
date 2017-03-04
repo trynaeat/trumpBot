@@ -1,0 +1,15 @@
+{
+  "name": "trumpbot",
+  "version": "1.0.0",
+  "description": "Markov chain Donald Trump Tweet generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake Parks",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.0",
+    "markov": "0.0.7"
+  }
+}
