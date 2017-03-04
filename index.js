@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 
 // Initialze markov chain hash table
 var m = markov(2);
-var s = fs.createReadStream(__dirname + '/text/donald.txt');
+var s = fs.createReadStream(__dirname + '/text/donald.txt', { encoding: 'utf-8' });
 console.log('Seeding...');
 console.time('seed');
 m.seed(s, function() {
