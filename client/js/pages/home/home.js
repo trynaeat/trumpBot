@@ -1,7 +1,22 @@
 app.controller('homeController', [ '$scope', '$http', function($scope, $http) {
+  $scope.emailCount = 0;
+  var emailKeywords = [
+    'email',
+    'clinton',
+    'clinton\'s',
+    'clintons',
+    'hillary',
+    'podesta',
+    'podesta\'s',
+    'podesta',
+    'dnc',
+    'emails'
+  ];
+
   function _getTweet() {
     $http.get('/tweet').then(function(result) {
       $scope.tweet = _htmlifyLinks(result.data.tweet);
+      _clintonCount($scope.tweet);
     });
   }
 
@@ -17,6 +32,24 @@ app.controller('homeController', [ '$scope', '$http', function($scope, $http) {
     }
     return tokens.join(' ');
   }
+
+  function _clintonCount(tweet) {
+    for(var i = 0; i < emailKeywords.length; i++) {
+      if(tweet.toLowerCase().indexOf(emailKeywords[i]) > -1) {
+        $scope.emailCount++;
+        return;
+      }
+      if(tweet.toLowerCase().indexOf('maga') > -1 || tweet.toLowerCase().indexOf('makeamericagreatagain') > -1) {
+        $scope.maga = true;
+        window.setTimeout(function() {
+          $scope.maga = false;
+          $scope.$apply();
+        }, 3000);
+        return;
+      }
+    }
+  }
+
   _getTweet();
   var today = new Date();
   var locale = "en-us";
