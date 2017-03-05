@@ -2,6 +2,7 @@ var util = require('util');
 var fs = require('fs');
 var markov = require('markov');
 var http = require('http');
+var config = require('./config/serverCfg.js');
 var express = require('express'), app = express();
 
 // Routes
@@ -17,7 +18,7 @@ app.get('/', function(req, res) {
 
 // Initialze markov chain hash table
 var m = markov(2);
-var s = fs.createReadStream(__dirname + '/text/donald.txt', { encoding: 'utf-8' });
+var s = fs.createReadStream(config.tweetsFilename, { encoding: 'utf-8' });
 console.log('Seeding...');
 console.time('seed');
 m.seed(s, function() {

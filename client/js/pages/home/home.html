@@ -1,7 +1,20 @@
 <div>Donald Trump sez...</div>
-<div style="padding-top:50px;">
-  <span ng-bind-html="tweet"></span>
-</div>
+<blockquote class="twitter-tweet" style="padding-top:30px;">
+  <div>
+    <img src="https://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2_bigger.jpg"></img>
+    <span class="username">Donald J. Trump <small>@realDonaldTrump &middot; {{ day }}</small></span>
+  </div>
+  <p ng-bind-html="tweet"></p>
+  <span class="button">
+    <i class="fa fa-reply"></i> 47K
+  </span>
+  <span class="button">
+    <i class="fa fa-retweet"></i> 47K
+  </span>
+  <span class="button">
+    <i class="fa fa-heart"></i> 100K
+  </span>
+</blockquote>
 <div style="padding-top:10px;">
   <button ng-click="getTweet()">New Tweet!</button>
 </div>
