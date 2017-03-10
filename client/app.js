@@ -5,9 +5,13 @@ app.config(function($routeProvider, $locationProvider) {
     requireBase: false
   });
   $routeProvider
-  .when('/home', {
+  .when('/', {
     templateUrl: '/client/js/pages/home/home.html',
     controller: 'homeController'
+  })
+  .when('/fatherJoeMustard', {
+    templateUrl: '/client/js/pages/fjm/fjm.html',
+    controller: 'fjmController'
   })
   .otherwise({
     redirectTo: '/'

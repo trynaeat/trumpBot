@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.0",
-    "markov": "0.0.7"
+    "markov": "0.0.7",
+    "request": "^2.80.0"
   }
 }
